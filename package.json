@@ -1,0 +1,14 @@
+{
+  "name": "pm2-grafana-influxdb-metrics",
+  "version": "1.0.0",
+  "description": "PM2 metrics for Grafana using influxdb",
+  "main": "app.js",
+  "author": "Gareth Williams",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "influx": "^5.0.7",
+    "moment-timezone": "^0.5.17",
+    "pm2": "^2.10.4"
+  }
+}
