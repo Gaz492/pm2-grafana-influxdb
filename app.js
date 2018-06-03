@@ -58,7 +58,7 @@ setInterval(() => {
                 const pm_name = process.name;
                 const pm_cpu = process.monit.cpu;
                 const pm_memory = process.monit.memory;
-                const pm_uptime = moment.duration(Math.ceil((Date.now() - process.pm2_env.pm_uptime)), 'milliseconds').format('D HH:mm:ss');
+                const pm_uptime = moment.duration(Math.ceil((Date.now() - process.pm2_env.pm_uptime)), 'milliseconds').format('D[d] HH:mm:ss');
                 const pm_status = process.pm2_env.status;
 
                 influx.writePoints([
