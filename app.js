@@ -59,7 +59,14 @@ setInterval(() => {
                 const pm_cpu = process.monit.cpu;
                 const pm_memory = process.monit.memory;
                 const pm_uptime = moment.duration(Math.ceil((Date.now() - process.pm2_env.pm_uptime)), 'milliseconds').format('D[d] HH:mm:ss');
-                const pm_status = process.pm2_env.status;
+                let pm_status;
+                if (process.pm2_env.status.toLowerCase() === 'online') {
+                    pm_status = 0;
+                } else if (process.pm2_env.status.toLowerCase() === 'offline') {
+                    pm_status = 2;
+                } else {
+                    pm_status = 1;
+                }
 
                 influx.writePoints([
                     {
