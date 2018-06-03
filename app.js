@@ -6,7 +6,9 @@
 
 const pm2 = require('pm2');
 const Influx = require('influx');
-const moment = require('moment-timezone');
+const moment = require('moment');
+const momentDurationFormatSetup = require("moment-duration-format");
+
 const config = require('./config/config');
 const os = require('os');
 
@@ -56,7 +58,7 @@ setInterval(() => {
                 const pm_name = process.name;
                 const pm_cpu = process.monit.cpu;
                 const pm_memory = process.monit.memory;
-                const pm_uptime = moment(Math.ceil((Date.now() - process.pm2_env.pm_uptime))).tz('UTC').format('HH:mm:ss');
+                const pm_uptime = moment.duration(Math.ceil((Date.now() - process.pm2_env.pm_uptime)), 'milliseconds').format('D HH:mm:ss');
                 const pm_status = process.pm2_env.status;
 
                 influx.writePoints([
