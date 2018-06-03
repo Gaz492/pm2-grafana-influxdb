@@ -25,7 +25,7 @@ const influx = new Influx.InfluxDB({
                 memory: Influx.FieldType.FLOAT,
                 cpu: Influx.FieldType.FLOAT,
                 uptime: Influx.FieldType.STRING,
-                status: Influx.FieldType.STRING
+                status: Influx.FieldType.INTEGER
             },
             tags: [
                 'host',
