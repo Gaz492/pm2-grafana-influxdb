@@ -62,7 +62,7 @@ setInterval(() => {
                 let pm_status;
                 if (process.pm2_env.status.toLowerCase() === 'online') {
                     pm_status = 0;
-                } else if (process.pm2_env.status.toLowerCase() === ('offline' || 'stopped')) {
+                } else if (process.pm2_env.status.toLowerCase() === 'offline' || process.pm2_env.status.toLowerCase() === 'stopped') {
                     pm_status = 2;
                 } else {
                     pm_status = 1;
